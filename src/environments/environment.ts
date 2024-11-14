@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  apiUrl: 'https://api.weather.gov/stations',
   apiKey: 'YOUR_API_KEY_HERE'
 };
 
