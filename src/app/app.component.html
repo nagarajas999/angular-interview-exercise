@@ -3,6 +3,27 @@
 </header>
 
 <div class="main">
+  <div class="container">
+  <h1>List of Weather Stations</h1>
+
+  <ul>
+    <li *ngFor="let station of paginatedStations" (click)="onSelectStation(station)">
+      {{ station.properties.name }}
+    </li>
+  </ul>
+
+  <mat-paginator
+    [length]="stations.length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[5, 10, 20]"
+    (page)="handlePageEvent($event)">
+  </mat-paginator>
+
+  <div *ngIf="selectedStation">
+    <h2>Selected station: {{ selectedStation.properties.name }}</h2>
+    <p>Current temperature: {{ temperature }}</p>
+  </div>
+</div>
 
 </div>
 
