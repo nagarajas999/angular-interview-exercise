@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
   }
 
   loadStations(): void {
-    this.weatherService.getStations().subscribe((data) => {
+    this.weatherService.getStationsRecords().subscribe((data) => {
       this.stations = data.features;
       this.updatePaginatedStations();
     });
@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
 
   onSelectStation(station: any): void {
     this.selectedStation = station;
-    this.weatherService.getTemperature(station.properties.stationIdentifier).subscribe((data) => {
+    this.weatherService.getTemperatureRecords(station.properties.stationIdentifier).subscribe((data) => {
       const temperature = data.features[0].properties?.temperature?.value;
       this.temperature = temperature ? `${temperature} °F` : 'Temperature not available';
     });

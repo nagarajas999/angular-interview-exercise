@@ -12,11 +12,11 @@ export class WeatherService {
 
   constructor(private http: HttpClient) { }
 
-  getStations(): Observable<any> {
+  getStationsRecords(): Observable<any> {
     return this.http.get<any>(this.stationsUrl);
   }
 
-  getTemperature(stationId: string): Observable<any> {
+  getTemperatureRecords(stationId: string): Observable<any> {
     return this.http.get<any>(`${this.observationsUrl}${stationId}/observations?limit=1`);
   }
 }
